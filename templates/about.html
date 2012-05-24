@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h1>Sobre o projeto</h1>
+<br />
+<blockquote>
+    O <b>Uniwiki</b> é um projeto acadêmico da disciplina de Desenvolvimento Web III da Unigran. O projeto consiste em aplicar os conhecimentos adquiridos nas displinas anteriores para implementar um sistemas web básico que atenda a certos pré-requisitos.
+    <br />
+    <br />
+    <small class="pull-right">Rodrigo de Lima Vieira - rodrigodelimavieira@gmail.com</small>
+</blockquote>
+<br />
+<h3> O projeto deverá contemplar os seguintes requisitos: </h3>
+{% endblock header %}
+{% block content %}
+<dl class="dl-horizontal">
+    <dt>
+        Área administrativa
+    </dt>
+    <dd>
+        Área administrativa (login de acesso) para inserção, edição e exclusão de dados.
+        <br />
+        <i>O framework Django possui a aplicação "admin" que supre essas necessidades. Em conjunto com a aplicação "auth", apenas usuários devidamente autenticados poderão acessar a área administrativa e realizar operação CRUD - Create, Read, Update e Delete - sobre os dados. Ou seja, para manipular notícias ou usuários, deve-se acessar a URL abaixo e fornecer login/senha para acesso.</i>
+        <br /><a href="/admin">http://uniwiki.br/admin</a>
+    </dd>
+
+    <dt>
+        Layout tableless
+    </dt>
+    <dd>
+        Apresentação visual (layout) utilizando Tableless, ou seja, Folhas de Estilos, CSS. NÃO utilizem tabelas (table) para criar o layout. (Podem seguir o modelo do template disponível em Material de Aula – Arquivos. Se preferirem apenas adaptem as imagens e informações para o site de vocês.)
+        <br />
+        <i>
+            O projeto foi desenvolvido utilizando o Twitter Bootstrap, um conjunto de componentes HTML, CSS e JavaScript para a interface do usuário e suas interações. Com isso o uso de tabelas fica restrito a dados tabulares, em hipótese alguma utilizado no desenvolvimento do layout.
+        </i>
+        <br />
+        <a href="http://twitter.github.com/bootstrap/index.html">http://twitter.github.com/bootstrap/index.html</a>
+    </dd>
+
+    <dt>
+        Banco de Dados
+    </dt>
+    <dd>
+        Banco de Dados para a manipulação dos dados e dos usuários que terão acesso à área restrita (obrigatoriamente Firebird – não será aceito MySql ou qualquer outro SGBD).
+        <br />
+        <i>
+            O Django permite a utilização de diversos bancos de dados, mas infelizmente o Firebird não está entre eles. Por isso foi utilizado um módulo a parte para integração com o Firebird, o que limitou o projeto a utilizar as versões 2.1 do Firebird e 1.3 do Django.
+        </i>
+        <br />
+        <a href="http://code.google.com/p/django-firebird/">http://code.google.com/p/django-firebird</a>
+    </dd>
+
+    <dt>
+        Notícias
+    </dt>
+    <dd>
+        Área administrativa que permita a inserção, edição e exclusão das notícias.
+                <br />
+        <i>
+            Através do Django implementamos o modelo "Article", responsável por armazenar as notícias cadastradas no banco de dados. Essas notícias são exibidas em uma área pública, acessível em "Notícias" no menu de navegação.
+            A exibição limita-se nas dez últimas notícias, das mais rescentes para as mais antigas. Para acessar notícias mais antigas estão disponíveis links de paginação na forma de botões.
+        </i>
+        <br />
+        <a href="/news">http://uniwiki.br/news</a>
+    </dd>
+
+    <dt>
+        Fale conosco
+    </dt>
+    <dd>
+        Formulário de Fale conosco, não necessariamente precise estar funcionando, pois quem não conseguir hospedar em um servidor com suporte a envio e recebimento de e-mails não irá conseguir fazê-lo funcionar
+        <br />
+        <i>
+            O formulário foi implementado utilizando componentes do próprio Django, onde são definidos os campos e seus atributos. Dessa forma o Django vincula os campos gerados com funções JavaScript pré-implementadas para a validação no lado cliente. Além disso o Django faz a validação no lado servidor através de rotinas em Python. O formulário recebeu os estilos correspondentes do Twitter Boostrap e algumas caixas de alerta em destaque para emitir os possíveis erros detectados na validação.
+        </i>
+        <br />
+        <a href="/news/contct">http://uniwiki.br/news/contact</a>
+    </dd>
+
+    <dt>
+        Upload de arquivos
+    </dt>
+    <dd>
+        Upload de imagens ou arquivos (pode-se fazer o upload de foto no cadastro de usuários, por exemplo).
+        <br />
+        <i>
+            O recurso de upload de imagens foi implementado junto com o cadastro de notícias. Dessa forma é possível vincular uma imagem a cada notícia, a qual será exibida na lista de notícias na área pública. Apesar da imagem estar definida como um campo no modelo notícias, o arquivo da imagem não fica armazenado como um registro no banco, mas sim sua URL e alguns outros atributos. O arquivo será armazenado em um diretório no servidor, criado especificamente para esta finalidade.
+        </i>
+        <br />
+        <a href="/news">http://uniwiki.br/news</a>
+    </dd>
+
+    <dt>
+        Validação de dados
+    </dt>
+    <dd>
+        Utilize a linguagem JavaScript para validar os campos dos formulários (Fale Conosco e cadastros).
+        <br />
+        <i>
+            O formulário foi implementado utilizando componentes do próprio Django, onde são definidos os campos e seus atributos. Dessa forma o Django vincula os campos gerados com funções JavaScript pré-implementadas para a validação no lado cliente. Além disso o Django faz a validação no lado servidor através de rotinas em Python. O formulário recebeu os estilos correspondentes do Twitter Boostrap e algumas caixas de alerta em destaque para emitir os possíveis erros detectados na validação.
+        </i>
+        <br />
+        <a href="/news/contct">http://uniwiki.br/news/contact</a>
+    </dd>
+
+    <dt>
+        Templates
+    </dt>
+    <dd>
+        Topos, rodapés, laterais e o arquivo de conexão que se repetem em várias páginas devem ser criados uma única vez e devem ser incluídos através do método include, nas páginas que o utilizam.
+            <br />
+        <i>
+            O sistema faz uso do mecanismo de templates do Django. Foi definido um layout principal em index.html, especificando o que o Django chama de slots, para que as outras páginas especificassem apenas os slots que devem ser sobreescritos, mantendo topo, rodapé, menus laterais, etc.
+        </i>
+        <br />
+        <a href="/">http://uniwiki.br</a>
+    </dd>
+
+    <dt>
+        Usabilidade
+    </dt>
+    <dd>
+        Sigam as normas de usabilidade e navegabilidade vistas na disciplina de Comunicação Visual para Web.
+        <br />
+        <i>
+            O sistema procura seguir a normas de usabilidade e navegabilidade vistas na disciplina de Comunicação Visual para Web. No entanto algumas recomendação aumentariam consideravelmente o tempo necessário para a realização da atividade, e por isso foram negligenciados.
+        </i>
+        <br />
+        <a href="/">http://uniwiki.br</a>
+    </dd>
+
+</dl>
+{% endblock content %}

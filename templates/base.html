@@ -6,8 +6,72 @@
 </head>
 
 <body>
-{% block content %}
-	body
-{% endblock content %}
+	<div class="row-fluid">
+		<div class="span12">&nbsp;</div>
+	</div>
+
+	<div class="container">
+	
+	<header>
+		<div class="navbar">
+  			<div class="navbar-inner">
+    			<div class="container">
+    	  			<a class="brand" href="/">
+  						UniWiki
+					</a>
+
+					<ul class="nav">
+						<li class="divider-vertical"></li>
+  						<li><a href="/">Home</a></li>
+  						<li class="divider-vertical"></li>
+  						<li><a href="/wiki/news">Notícias</a></li>
+  						<li class="divider-vertical"></li>
+  						<li><a href="/contact">Contato</a></li>
+  						<li class="divider-vertical"></li>
+  						<li><a href="/about">Sobre</a></li>
+  						<li class="divider-vertical"></li>
+  						<li><a href="/admin">Admin</a></li>
+  						<li class="divider-vertical"></li>
+					</ul>
+    			</div>
+  			</div>
+		</div>
+	</header>
+
+		{% block header %}
+
+		{% endblock header %}
+
+		{% block content %}
+			body
+		{% endblock content %}
+
+	<footer>
+		{% block footer %}
+    <div class="row-fluid">
+		<div class="span12">&nbsp;</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span12">&nbsp;</div>
+	</div>
+    <div class="row">
+        <div class="span4">
+            <img src="http://www.jessicawh.com/images/opensource_logo.png" />
+            <a class="pull-right" style="centered   " href="http://www.python.org"><img src="http://www.python.org/community/logos/python-powered-w-100x40.png"></a>
+        </div>
+        <div class="span4">
+            <a class="pull-right" href="http://www.djangoproject.com/"><img src="https://www.djangoproject.com/m/img/badges/djangomade124x25.gif" border="0" alt="Made with Django." title="Made with Django." /></a>
+        </div>
+        <div class="span4">
+            <a class="pull-right" rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Licença Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        </div>
+        <div class="span12">
+            <br />O trabalho <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type">UniWiki</span> de <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Rodrigo de Lima Vieira</span> foi licenciado com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons - Atribuição - CompartilhaIgual 3.0 Não Adaptada</a>.
+        </div>
+    </div>
+    
+		{% endblock footer %}
+	</footer>
+	</div>
 </body>
 </html>
