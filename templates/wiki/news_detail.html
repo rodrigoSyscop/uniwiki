@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block header %}
+	<h1>{{ news.headline }}</h1>
+{% endblock header %}
+
+
+{% block content %}
+	<small class="pull-right">{{ news.pub_date }}</small>
+	<img src="{{ news.photo.url}}" />
+	{{ news.content }}
+{% endblock content %}

@@ -11,7 +11,7 @@ urlpatterns = patterns('',
 			),
 	),
 
-	url(r'^news/(?P<pk>\d+)/?$',
+	url(r'^news/(?P<pk>\d+)?/$',
 		DetailView.as_view(
 			model=News,
 			template_name='news/detail.html'
