@@ -1,9 +1,29 @@
 {% extends "base.html" %}
-<h1>Notícias</h1>
-{% for article in latest_news_list %}
-<hr>
-<p>{{ article.pub_date }}</p>
-<p><h3>{{ article.headline }}</h3></p>
-<p>{{ article.content|truncatewords:50 }}</p>
-<p><img src="{{ article.photo.url }}" /></p>
-{% endfor %}
+
+{% block header %}
+	<h1>Notícias</h1>
+{% endblock header %}
+
+
+{%block content %}
+	
+	<ul class="thumbnails">
+  	{% for article in latest_news_list %}
+  		<li class="span3">
+	    	<div class="thumbnail">
+    	  		<a href="/news/{{ article.id }}">
+    	  			<img src="{{ article.photo.url }}" alt="{{ article.photo.url }}" />
+    	  		</a>
+      			<h5>{{ article.headline|truncatewords:10 }}</h5>
+      			<p>
+      				{{ article.content|truncatewords:25 }}
+      				<a href="/news/{{ article.id }}">Leia mais</a>
+      			</p>
+      			<small>{{ article.pub_date }}</small> 
+    		</div>
+  		</li>
+	{% endfor %}
+	</ul>
+
+
+{% endblock content %}
