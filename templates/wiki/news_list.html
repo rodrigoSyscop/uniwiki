@@ -1,1 +1,8 @@
-nana
+<h1>Notícias</h1>
+{% for article in latest_news_list %}
+<hr>
+<p>{{ article.pub_date }}</p>
+<p><h3>{{ article.headline }}</h3></p>
+<p>{{ article.content|truncatewords:50 }}</p>
+<p><img src="{{ article.photo.url }}" /></p>
+{% endfor %}
