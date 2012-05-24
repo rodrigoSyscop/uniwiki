@@ -4,7 +4,7 @@ class News(models.Model):
 	pub_date = models.DateTimeField()
 	headline = models.CharField(max_length=200)
 	content  = models.TextField()
-	photo    = models.ImageField(upload_to='/photos/')
+	photo    = models.ImageField(upload_to='photos')
 
 	class Meta:
 		ordering = ["-pub_date"]
