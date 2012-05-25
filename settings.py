@@ -146,3 +146,9 @@ LOGGING = {
         },
     }
 }
+
+# E-MAIL CONFS
+EMAIL_HOST="smtp.mailserver.com"
+EMAIL_PORT="25"
+EMAIL_HOST_USER="noreply@uniwiki.br"
+EMAIL_HOST_PASSWORD="123456"

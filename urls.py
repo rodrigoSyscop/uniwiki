@@ -28,6 +28,11 @@ urlpatterns = patterns('',
     		),
     	),
     url(r'^contact$', 'views.contact'),
+    url(r'^thanks$',
+        TemplateView.as_view(
+            template_name='thanks.html'
+            ),
+        ),
     url(r'^$',
     	TemplateView.as_view(
     		template_name='index.html'
