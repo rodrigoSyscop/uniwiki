@@ -7,23 +7,29 @@
 
 {%block content %}
 	
-	<ul class="thumbnails">
-  	{% for article in latest_news_list %}
-  		<li class="span3">
-	    	<div class="thumbnail">
-    	  		<a href="/wiki/news/{{ article.id }}">
-    	  			<img src="{{ article.photo.url }}" alt="{{ article.photo.url }}" />
-    	  		</a>
-      			<h5>{{ article.headline|truncatewords:10 }}</h5>
-      			<p>
-      				{{ article.content|truncatewords:25 }}
-      				<a href="/wiki/news/{{ article.id }}">Leia mais</a>
-      			</p>
-      			<small>{{ article.pub_date }}</small> 
-    		</div>
-  		</li>
-	{% endfor %}
-	</ul>
+		{% for article in latest_news_list %}
+    <div class="row">
+      <div class="span4">
+        <ul class="thumbnails">
+          <li class="span3">
+            <a href="/wiki/news/{{ article.id }}" class="thumbnail">
+              <img src="{{ article.photo.url }}" alt="">
+            </a>
+          </li>
+      </ul>
+      </div>
 
+      <div class="span8">
+          <h6>{{ article.pub_date }}</h6>
+          <h3>{{ article.headline }}</h3>
+          <p>
+            {{ article.content|truncatewords:40 }}
+            <a href="/wiki/news/{{ article.id }}">Leia mais</a>
+          </p>
+
+      </div>
+    </div>
+    {% endfor %}
+	
 
 {% endblock content %}

@@ -1,0 +1,60 @@
+{% extends "index.html" %}
+{% block head %}
+    <h1>Entre em contato conosco:</h1>
+{% endblock head %}
+
+{% block content %}
+<form action="/contact" method="post">{% csrf_token %}
+    {% if form.non_field_errors %}
+    <div class="alert alert-error">
+        {{ form.non_field_errors }}
+    </div>
+    {% endif %}
+
+
+    <div class="fieldWrapper">
+        <label for="id_subject">Assunto do e-mail:</label>
+        {{ form.subject }}
+        {% if form.subject.errors %}
+        <div class="alert alert-error">
+            {{ form.subject.errors }}
+        </div>
+        {% endif %}
+    </div>
+
+
+    <div class="fieldWrapper">
+        <label for="id_message">Mensagem:</label>
+        {{ form.message }}
+        {% if form.message.errors %}
+        <div class="alert alert-error">
+            {{ form.message.errors }}
+        </div>
+        {% endif %}
+    </div>
+
+
+    <div class="fieldWrapper">
+    <label for="id_sender">Seu e-mail:</label>
+    {{ form.sender }}
+    {% if form.sender.errors %}
+        <div class="alert alert-error">
+            {{ form.sender.errors }}
+        </div>
+        {% endif %}
+    </div>
+    <div class="fieldWrapper">
+        <label for="id_cc_myself">Enviar uma cópia para o seu e-mail?</label>
+        {{ form.cc_myself }}
+        {% if form.cc_myself.errors %}
+        <div class="alert alert-error">
+            {{ form.cc_myself.errors }}
+        </div>
+        {% endif %}
+
+    </div>
+
+    <p><input type="submit" value="Enviar mensagem" /></p>
+
+</form>
+{% endblock content %}
